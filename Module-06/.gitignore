@@ -1,0 +1,9 @@
+# Module 6 — generated at runtime, never commit
+# (instructor guide and solution-code/ are ignored by the repo-root .gitignore)
+memory_store/
+**/memory_store/
+demos/demo_store/
+exercise/exercise_store/
+.preflight_store/
+__pycache__/
+*.pyc

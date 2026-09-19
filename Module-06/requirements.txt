@@ -1,0 +1,18 @@
+# Module 6 dependencies
+#
+# Install into the SAME environment you used for the earlier modules:
+#     Module-02\.venv\Scripts\python.exe -m pip install -r Module-06\requirements.txt
+#
+# Python 3.12 is known good. Python 3.14 is NOT: chromadb's onnxruntime wheel
+# does not exist for it yet, and pip will try to compile things for ten minutes
+# and then fail.
+#
+# Why no torch, no sentence-transformers, no second API key:
+# chromadb ships its own embedding model (all-MiniLM-L6-v2, ONNX). It downloads
+# once (~80 MB, into ~/.cache/chroma) the first time you add a document, then
+# runs locally with no key. Run m6_preflight.py the day before to trigger it.
+
+chromadb>=1.0,<2          # persistent vector store + built-in local embeddings
+langchain-openai>=0.2.0   # ChatOpenAI, pointed at OpenRouter (same as M1-M5)
+python-dotenv>=1.0.0      # loads your .env
+tiktoken>=0.7.0           # count tokens without calling the API
